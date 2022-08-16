@@ -29,5 +29,15 @@ class mytheme {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedIconTheme: IconThemeData(size: 36),
-          unselectedIconTheme: IconThemeData(size: 28)));
+          unselectedIconTheme: IconThemeData(size: 28)
+      ),
+      textTheme: TextTheme(
+        titleMedium: TextStyle(color:lightprimary,fontWeight: FontWeight.bold,fontSize:24
+        ),
+        bodySmall: TextStyle(color:Colors.black,fontSize:12
+        ),
+      ),
+
+
+  );
 }
