@@ -8,17 +8,20 @@ class TasksListTap extends StatelessWidget {
     return Column(
       children: [
         CalendarTimeline(
-          initialDate: DateTime(2020, 4, 20),
-          firstDate: DateTime(2019, 1, 15),
-          lastDate: DateTime(2020, 11, 20),
-          onDateSelected: (date) => print(date),
+          showYears: true,
+          initialDate: DateTime.now(),
+          firstDate: DateTime.now().subtract(Duration(days: 365)),
+          lastDate: DateTime.now().add(Duration(days: 365)),
+          onDateSelected: (date) {
+            // on user choose new date
+          },
           leftMargin: 20,
-          monthColor: Colors.blueGrey,
-          dayColor: Colors.teal[200],
-          activeDayColor: Colors.white,
-          activeBackgroundDayColor: Colors.redAccent[100],
-          dotsColor: Color(0xFF333A47),
-          selectableDayPredicate: (date) => date.day != 23,
+          dayColor: Colors.black,
+          activeDayColor: Theme.of(context).primaryColor,
+          activeBackgroundDayColor: Colors.white,
+          monthColor: Colors.black,
+          dotsColor:Theme.of(context).primaryColor,
+          selectableDayPredicate: (date) => date.day != 21,
           locale: 'en_ISO',
         )
       ],
