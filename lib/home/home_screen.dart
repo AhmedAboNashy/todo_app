@@ -58,6 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
         context: context,
         builder: (buildContext) {
           return AddTaskBottomSheet();
-        });
+        },isScrollControlled: true);
   }
 }

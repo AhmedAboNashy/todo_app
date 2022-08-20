@@ -9,35 +9,29 @@ class mytheme {
   static const Color red = Color(0XFFEC4B4B);
   static final lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
-      color: lightprimary,
-      toolbarHeight: 100,
-      centerTitle: true,
-      titleTextStyle: TextStyle(
-        fontSize: 28,
-        fontWeight: FontWeight.bold,
-        color: Colors.white
-      )
+        color: lightprimary,
+        toolbarHeight: 100,
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+            fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white)),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
     ),
-      bottomAppBarTheme: BottomAppBarTheme(
-        shape:  CircularNotchedRectangle(),
-      ),
-      primaryColor: lightprimary,
-      scaffoldBackgroundColor: lightScaffoldBackground,
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedIconTheme: IconThemeData(size: 36),
-          unselectedIconTheme: IconThemeData(size: 28)
-      ),
-      textTheme: TextTheme(
-        titleMedium: TextStyle(color:lightprimary,fontWeight: FontWeight.bold,fontSize:24
-        ),
-        bodySmall: TextStyle(color:Colors.black,fontSize:12
-        ),
-      ),
-
-
+    primaryColor: lightprimary,
+    scaffoldBackgroundColor: lightScaffoldBackground,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedIconTheme: IconThemeData(size: 36),
+        unselectedIconTheme: IconThemeData(size: 28)),
+    textTheme: TextTheme(
+      titleMedium: TextStyle(
+          color: lightprimary, fontWeight: FontWeight.bold, fontSize: 24),
+      titleSmall: TextStyle(
+          color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+      bodySmall: TextStyle(color: Colors.black, fontSize: 12),
+    ),
   );
 }

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todo_app/database/my_database.dart';
+import 'package:todo_app/database/task.dart';
+import 'package:todo_app/dialogeUtils.dart';
 import 'package:todo_app/my_Theme_data.dart';
 
 class TaskWidget extends StatelessWidget {
+  Task task;
+  TaskWidget(this.task);
   @override
   Widget build(BuildContext context) {
     return Slidable(
@@ -13,7 +18,17 @@ class TaskWidget extends StatelessWidget {
             child: SlidableAction(
               onPressed: (
                 _,
-              ) {},
+              ) {
+                MyDatabase.deleteTask(task)
+                    .then((value) {
+                      showMessage(context, 'Tas kDeleted Successfully',posActionName: 'ok');
+                })
+                    .onError((error, stackTrace) {})
+                    .timeout(Duration(seconds: 5), onTimeout: () {
+                  showMessage(context, 'Something Went Wrong,' 'please Try again later',
+                      posActionName: 'ok');
+                });
+              },
               icon: Icons.delete,
               backgroundColor: mytheme.red,
               label: 'Delete',
@@ -46,7 +61,7 @@ class TaskWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('This is Title',
+                  Text(task.title ?? "",
                       style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(
                     width: 8,
@@ -57,7 +72,7 @@ class TaskWidget extends StatelessWidget {
                         Icons.access_time,
                       ),
                       Text(
-                        '10:30 am',
+                        task.description ?? "",
                         style: Theme.of(context).textTheme.bodySmall,
                       )
                     ],
