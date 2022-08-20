@@ -9,20 +9,22 @@ class TaskWidget extends StatelessWidget {
       startActionPane: ActionPane(
         motion: DrawerMotion(),
         children: [
-          SlidableAction(
-            onPressed: (
-              _,
-            ) {},
-            icon: Icons.delete,
-            backgroundColor: mytheme.red,
-            label: 'Delete',
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+          Container(
+            child: SlidableAction(
+              onPressed: (
+                _,
+              ) {},
+              icon: Icons.delete,
+              backgroundColor: mytheme.red,
+              label: 'Delete',
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  bottomLeft: Radius.circular(12)),
+            ),
           )
         ],
       ),
       child: Container(
-        margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(4)),
         padding: EdgeInsets.all(24),

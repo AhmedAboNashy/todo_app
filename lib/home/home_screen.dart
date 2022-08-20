@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/home/add_Task_Bottom_Sheet.dart';
 import 'package:todo_app/tasks_list/tasks_list_Tap.dart';
 import 'package:todo_app/settings/settings_tap.dart';
-
 
 class HomeScreen extends StatefulWidget {
   static String routeName = 'home';
@@ -39,11 +38,26 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         shape: StadiumBorder(side: BorderSide(color: Colors.white, width: 4)),
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return AddTaskBottomSheet();
+              }));
+            },
+            child: Icon(
+              Icons.add,
+            )),
       ),
       body: tabs[selectedtindex],
     );
   }
 
   var tabs = [TasksListTap(), SettingsTap()];
+  void showAddTaskbottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (buildContext) {
+          return AddTaskBottomSheet();
+        });
+  }
 }
